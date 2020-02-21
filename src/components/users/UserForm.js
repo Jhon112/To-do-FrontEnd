@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { USERS_SERVICE_URL } from "../../constants";
+import { InputGroup, FormControl } from "react-bootstrap";
+
 
 
 export default class UserForm extends Component {
@@ -51,15 +53,20 @@ export default class UserForm extends Component {
   render() {
     return (
       <form id="create-user-form" onSubmit={this.handleSubmit}>
-        <label>Name</label>
-        <input
-          name="name"
-          type="text"
-          value={this.state.userName || ""}
-          onChange={this.handleChange}
-        />
-        <br />
-        <button type="submit" value="Submit">
+        <InputGroup className="mb-3">
+          <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroup-sizing-default">
+              Name
+            </InputGroup.Text>
+          </InputGroup.Prepend>
+          <FormControl
+            name="name"
+            type="text"
+            value={this.state.userName || ""}
+            onChange={this.handleChange}
+          />
+        </InputGroup>
+        <button className="btn btn-success" type="submit" value="Submit">
           Add User
         </button>
       </form>

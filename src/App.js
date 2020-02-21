@@ -3,6 +3,8 @@ import axios from "axios";
 import Users from "./components/users/Users";
 import Tasks from "./components/tasks/Tasks";
 import { USERS_SERVICE_URL } from "./constants";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Row, Col } from "react-bootstrap";
 
 class App extends React.Component {
   constructor(props) {
@@ -39,19 +41,27 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <div className="User__component">
-          {statusAPiUsers === "OK" && (
-            <Users showTasks={this.showTasks} statusApi={statusAPiUsers} />
-          )}
-        </div>
-
-        
-
-        {showTasksList && (
-          <div className="Tasks__component">
-            <Tasks userName={userName} userId={userId} />
-          </div>
-        )}
+        <Container>
+          <Row>
+            <Col>
+              <div className="User__component">
+                {statusAPiUsers === "OK" && (
+                  <Users
+                    showTasks={this.showTasks}
+                    statusApi={statusAPiUsers}
+                  />
+                )}
+              </div>
+            </Col>
+            <Col>
+              {showTasksList && (
+                <div className="Tasks__component">
+                  <Tasks userName={userName} userId={userId} />
+                </div>
+              )}
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
   }

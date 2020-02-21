@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { USERS_SERVICE_URL } from "../../constants";
+import { Table, Form } from "react-bootstrap";
 
 export default class UsersList extends Component {
   constructor(props) {
@@ -111,7 +112,7 @@ export default class UsersList extends Component {
 
     return (
       <div>
-        <table id="usersTable">
+        <Table id="usersTable">
           <thead>
             <tr>
               <th>Name</th>
@@ -128,6 +129,7 @@ export default class UsersList extends Component {
                   <td id={userNameId}>{user.name}</td>
                   <td>
                     <button
+                      className="btn btn-dark"
                       onClick={e => this.props.showTasks(user.name, user.id)}
                     >
                       Tasks
@@ -135,13 +137,19 @@ export default class UsersList extends Component {
                   </td>
                   <td>
                     <button
+                      className="btn btn-success"
                       data-user-id={user.id}
                       data-user-name={user.name}
                       onClick={this.displayUserForm}
+                      style={{ marginRight: "15px" }}
                     >
                       update
                     </button>
-                    <button data-user-id={user.id} onClick={this.deleteUser}>
+                    <button
+                      className="btn btn-danger"
+                      data-user-id={user.id}
+                      onClick={this.deleteUser}
+                    >
                       Delete
                     </button>
                   </td>
@@ -149,7 +157,7 @@ export default class UsersList extends Component {
               );
             })}
           </tbody>
-        </table>
+        </Table>
         <ul></ul>
       </div>
     );

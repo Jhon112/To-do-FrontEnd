@@ -54,11 +54,13 @@ class Tasks extends React.Component {
                 New Task
               </button>
             </div>
+            <br />
             {addTask && (
               <div className="task__form">
                 <TaskForm userId={userId} getTasks={this.getTasks} />
               </div>
             )}
+            <br />
             <div className="Tasks__list">
               <TasksList
                 userId={userId}

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { TASKS_SERVICE_URL } from "../../constants";
+import { InputGroup, FormControl } from "react-bootstrap";
+
 
 
 export default class TaskForm extends Component {
@@ -58,15 +60,22 @@ export default class TaskForm extends Component {
   render() {
     return (
       <form id="create-task-form" onSubmit={this.handleSubmit}>
-        <label>Description</label>
-        <input
-          name="description"
-          type="text"
-          value={this.state.form.description || ""}
-          onChange={this.handleChange}
-        />
-        <br />
-        <button type="submit" value="Submit">Add Task</button>
+        <InputGroup className="mb-3">
+          <InputGroup.Prepend>
+            <InputGroup.Text id="inputGroup-sizing-default">
+              Description
+            </InputGroup.Text>
+          </InputGroup.Prepend>
+          <FormControl
+            name="description"
+            type="text"
+            value={this.state.form.description || ""}
+            onChange={this.handleChange}
+          />
+        </InputGroup>
+        <button className="btn btn-success" type="submit" value="Submit">
+          Add Task
+        </button>
       </form>
     );
   }

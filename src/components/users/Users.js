@@ -38,7 +38,7 @@ class Users extends React.Component {
             <h2>Users</h2>
             <div className="Users__buttons">
               <button
-                className="Add__User__button"
+                className="btn btn-primary"
                 onClick={e => {
                   this.setState({
                     addUser: true
@@ -48,7 +48,7 @@ class Users extends React.Component {
                 New User
               </button>
             </div>
-
+            <br />
             {addUser && (
               <div className="User__form">
                 <UserForm getUsers={this.getUsers} />

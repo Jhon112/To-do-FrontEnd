@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { TASKS_SERVICE_URL } from "../../constants";
+import { Table, Form } from "react-bootstrap";
+
 
 export default class TasksList extends Component {
   constructor(props) {
@@ -133,7 +135,7 @@ export default class TasksList extends Component {
 
     return (
       <div>
-        <table id="usersTable">
+        <Table id="usersTable">
           <thead>
             <tr>
               <th>Description</th>
@@ -145,29 +147,41 @@ export default class TasksList extends Component {
             {tasks.map(task => {
               const taskState = task.state === "done" ? 1 : 0;
 
-              const taskDescriptionId = `description${task.id}`
+              const taskDescriptionId = `description${task.id}`;
               return (
                 <tr key={task.id}>
                   <td id={taskDescriptionId}>{task.description}</td>
                   <td>
-                    <select value={taskState} onChange={this.handleChangeState}>
-                      <option value="0" data-task-id={task.id}>
-                        To do
-                      </option>
-                      <option value="1" data-task-id={task.id}>
-                        Done
-                      </option>
-                    </select>
+                    <Form.Group controlId="exampleForm.ControlSelect1">
+                      <Form.Control
+                        value={taskState}
+                        onChange={this.handleChangeState}
+                        as="select"
+                      >
+                        <option value="0" data-task-id={task.id}>
+                          To do
+                        </option>
+                        <option value="1" data-task-id={task.id}>
+                          Done
+                        </option>
+                      </Form.Control>
+                    </Form.Group>
                   </td>
                   <td>
                     <button
+                      className="btn btn-success"
+                      style={{ marginRight: "15px" }}
                       data-task-id={task.id}
                       data-task-description={task.description}
                       onClick={this.displayDescriptionForm}
                     >
                       update
                     </button>
-                    <button data-task-id={task.id} onClick={this.deleteTask}>
+                    <button
+                      className="btn btn-danger"
+                      data-task-id={task.id}
+                      onClick={this.deleteTask}
+                    >
                       Delete
                     </button>
                   </td>
@@ -175,7 +189,7 @@ export default class TasksList extends Component {
               );
             })}
           </tbody>
-        </table>
+        </Table>
       </div>
     );
   }
