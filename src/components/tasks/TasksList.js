@@ -67,9 +67,7 @@ export default class TasksList extends Component {
     );
   }
 
-  handleChangeDescription(event) {
-    console.log(event);
-    
+  handleChangeDescription(event) {    
     const target = event.target;
     const value = target.value;
 
