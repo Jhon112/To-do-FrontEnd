@@ -111,7 +111,7 @@ export default class TasksList extends Component {
       });
       this.props.getTasks(userId);
     } catch (error) {
-      alert(error.response.data.message);
+      error.response ? alert(error.response.data.message) : alert(error);
     }
   }
 
@@ -124,7 +124,7 @@ export default class TasksList extends Component {
       alert("Task deleted");
       this.props.getTasks(userId);
     } catch (error) {
-      alert(error.response.data.message);
+      error.response ? alert(error.response.data.message) : alert(error);
     }
   }
 
@@ -138,7 +138,7 @@ export default class TasksList extends Component {
             <tr>
               <th>Description</th>
               <th>State</th>
-              <th>Delete</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>

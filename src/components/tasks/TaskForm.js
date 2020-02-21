@@ -40,7 +40,9 @@ export default class TaskForm extends Component {
       document.getElementById("create-task-form").reset();
       this.setState({ form: {} });
     } catch (error) {
-      alert(error.response.data.message);
+      error.response
+        ? alert(error.response.data.message)
+        : alert(error);
     }
 
     

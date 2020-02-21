@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
-import TasksList from "../components/tasks/TasksList";
-import TaskForm from "../components/tasks/TaskForm";
-import { TASKS_SERVICE_URL } from "../constants";
+import TasksList from "./TasksList";
+import TaskForm from "./TaskForm";
+import { TASKS_SERVICE_URL } from "../../constants";
 
 
 class Tasks extends React.Component {
@@ -33,12 +33,15 @@ class Tasks extends React.Component {
   }
 
   render() {
-    let { tasks, userId, addTask } = this.state;
+    let { userName, tasks, userId, addTask } = this.state;
 
     return (
       <div>
         <div className="Tasks">
           <div className="Tasks__container">
+            <h2>Tasks</h2>
+            <h4 id={"owner" + userId}>Owned by: {userName}</h4>
+
             <div className="Tasks__buttons">
               <button
                 className="btn btn-primary"
@@ -81,7 +84,7 @@ class Tasks extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.userId !== prevState.userId) {
-      return { userId: nextProps.userId };
+      return { userName: nextProps.userName, userId: nextProps.userId };
     } else return null;
   }
 }
