@@ -6,6 +6,16 @@
     "npm": "6.4.0",
     "node": "12.14.1"
   },
+  "proxy": {
+    "http://ec2-18-232-100-104.compute-1.amazonaws.com/users": {
+      "target": "http://ec2-18-232-100-104.compute-1.amazonaws.com",
+      "changeOrigin": true
+    },
+    "https://tasks-microservice-904.herokuapp.com/api/v1/tasks": {
+      "target": "https://tasks-microservice-904.herokuapp.com/api/v1/tasks",
+      "changeOrigin": true
+    }
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
