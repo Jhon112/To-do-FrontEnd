@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { USERS_SERVICE_URL } from "../../constants";
-import { Table, Form } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 
 export default class UsersList extends Component {
   constructor(props) {
