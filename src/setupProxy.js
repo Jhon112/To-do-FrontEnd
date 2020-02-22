@@ -1,11 +1,13 @@
 const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = function(app) {
-  app.use("/users",
+  app.use(
+    "/users",
     createProxyMiddleware({
-      target: "ec2-18-232-100-104.compute-1.amazonaws.com",
+      target: "https://user-microservices.herokuapp.com/api/v1",
       changeOrigin: true
-    }));
+    })
+  );
   app.use(
     "/tasks",
     createProxyMiddleware({
