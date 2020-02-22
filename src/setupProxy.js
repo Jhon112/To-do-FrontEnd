@@ -3,7 +3,7 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 module.exports = function(app) {
   app.use("/users",
     createProxyMiddleware({
-      target: "https://ec2-18-232-100-104.compute-1.amazonaws.com",
+      target: "ec2-18-232-100-104.compute-1.amazonaws.com",
       changeOrigin: true
     }));
   app.use(
