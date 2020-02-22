@@ -33,7 +33,7 @@ export default class UserForm extends Component {
       };
   
       try {
-        await axios.post(`${USERS_SERVICE_URL}/users`, data);
+        await axios.post(USERS_SERVICE_URL, data);
         alert('User created!')
         this.props.getUsers();
         document.getElementById("create-user-form").reset();

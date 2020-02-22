@@ -17,8 +17,7 @@ class Users extends React.Component {
   async getUsers() {
     let users = [];
 
-    const url = `${USERS_SERVICE_URL}/users`;
-    const request = await axios.get(url);
+    const request = await axios.get(USERS_SERVICE_URL);
     users = request.data;
     this.setState({
       users,

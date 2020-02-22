@@ -2,7 +2,6 @@ import React from 'react';
 import axios from "axios";
 import Users from "./components/users/Users";
 import Tasks from "./components/tasks/Tasks";
-import { USERS_SERVICE_URL } from "./constants";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -28,7 +27,7 @@ class App extends React.Component {
   };
 
   async getstatusApiUsers() {
-    const url = `${USERS_SERVICE_URL}/status`;
+    const url = 'http://ec2-18-232-100-104.compute-1.amazonaws.com/status';
     const response = await axios.get(url);
     const status = response.data.status;
     this.setState({

@@ -80,7 +80,7 @@ export default class UsersList extends Component {
 
 
     try {
-      await axios.put(`${USERS_SERVICE_URL}/users/${userId}`, data);
+      await axios.put(`${USERS_SERVICE_URL}/${userId}`, data);
       alert("User updated!");
       this.setState({
         state: 0,
@@ -99,7 +99,7 @@ export default class UsersList extends Component {
     const userId = event.target.getAttribute("data-user-id");
 
     try {
-      await axios.delete(`${USERS_SERVICE_URL}/users/${userId}`);
+      await axios.delete(`${USERS_SERVICE_URL}/${userId}`);
       alert("User deleted");
       this.props.getUsers(userId);
     } catch (error) {
