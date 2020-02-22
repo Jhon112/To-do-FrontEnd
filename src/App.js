@@ -27,7 +27,7 @@ class App extends React.Component {
   };
 
   async getstatusApiUsers() {
-    const url = 'http://ec2-18-232-100-104.compute-1.amazonaws.com/status';
+    const url = "https://user-microservices.herokuapp.com/api/v1/status";
     const response = await axios.get(url);
     const status = response.data.status;
     this.setState({
